@@ -1,0 +1,15 @@
+[package]
+name = "diceware"
+description = "Rust crate and CLI for generating strong Diceware passphrases."
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+clap = { version = "3.0.7", features = ["derive"] }
+rand = "0.8.4"
+colored = "2.0.0"
+
+[profile.release]
+opt-level = "s"
+lto = true
