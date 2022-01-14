@@ -7,11 +7,11 @@ pub struct DicewareCli {
   #[clap(short, long, default_value_t = 6, display_order = 1)]
   pub length: usize,
 
-  /// Path to a custom wordlist (the wordlist must contain 1111-7776 lines).
+  /// Path to a custom wordlist.
   #[clap(short, long, display_order = 2)]
   pub wordlist: Option<String>,
 
-  /// Whether to show entropy of the passphrase.
+  /// Show entropy of the passphrase.
   #[clap(short, long, display_order = 3)]
   pub entropy: bool,
 }

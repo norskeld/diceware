@@ -28,7 +28,7 @@ fn main() {
   let passphrase = diceware::passphrase(wordlist, rolls);
 
   if passphrase.is_empty() {
-    println!("Something went wrong, and I couldn't generate a passphrase with given parameters.");
+    println!("Couldn't generate a passphrase with given parameters.");
     process::exit(1);
   } else {
     println!("Passphrase: {}", passphrase.green().bold());
