@@ -37,7 +37,6 @@ pub fn passphrase(lines: Vec<String>, dice_rolls: Vec<Vec<usize>>) -> String {
 }
 
 /// Rolls a dice!
-///
 pub fn roll_dice(runs: usize, rolls: usize, start: usize, end: usize) -> Vec<Vec<usize>> {
   let mut rng = rand::thread_rng();
 
