@@ -1,8 +1,8 @@
 {
   "editor.rulers": [100],
   "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
   "rust-analyzer.diagnostics.disabled": ["macro-error"],
-  "rust-analyzer.inlayHints.enable": false,
-  "rust-analyzer.lens.enable": false
+  "rust-analyzer.lens.enable": true
 }
