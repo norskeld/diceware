@@ -9,34 +9,32 @@ static EFF_WORDLIST: &str = include_str!("../data/eff_long_wordlist.txt");
 /// Represents a pair of an index, and a word associated with that index.
 pub(crate) type Pair = (usize, String);
 
-/// Generates a Diceware passphrase.
-pub fn passphrase(lines: Vec<String>, dice_rolls: Vec<Vec<usize>>) -> String {
-  let words = dice_rolls
-    .iter()
-    .fold(Vec::new(), |acc: Vec<String>, roll| {
-      let rolled_index = to_index(roll.to_vec());
+/// Given a wordlist and rolls, generates a Diceware passphraseas as a [Vec] of words.
+pub fn passphrase(lines: Vec<String>, dice_rolls: Vec<Vec<usize>>) -> Vec<String> {
+  let words = dice_rolls.iter().fold(Vec::new(), |acc, roll| {
+    let rolled_index = to_index(roll.to_vec());
 
-      let rolled_word = lines.iter().find_map(|line| {
-        let components = to_components(line);
-        let pair = to_pair(components);
+    let rolled_word = lines.iter().find_map(|line| {
+      let components = to_components(line);
+      let pair = to_pair(components);
 
-        match pair {
-          | Some((index, word)) if rolled_index == index => Some(word),
-          | _ => None,
-        }
-      });
-
-      if let Some(word) = rolled_word {
-        [acc, vec![word]].concat()
-      } else {
-        acc
+      match pair {
+        | Some((index, word)) if rolled_index == index => Some(word),
+        | _ => None,
       }
     });
 
-  words.join(" ")
+    if let Some(word) = rolled_word {
+      [acc, vec![word]].concat()
+    } else {
+      acc
+    }
+  });
+
+  words
 }
 
-/// Rolls a dice!
+/// Rolls a dice, producing a vector of numbers for each run.
 pub fn roll_dice(runs: usize, rolls: usize, start: usize, end: usize) -> Vec<Vec<usize>> {
   let mut rng = rand::thread_rng();
 
@@ -50,12 +48,12 @@ pub fn read_wordlist<P: AsRef<Path>>(path: P) -> Result<Vec<String>> {
   let file = File::open(path)?;
   let reader = BufReader::new(file);
 
-  reader.lines().collect::<Result<Vec<String>>>()
+  reader.lines().collect()
 }
 
 /// Reads a built-in EFF long wordlist and returns a vector of lines.
 pub fn read_wordlist_internal() -> Vec<String> {
-  EFF_WORDLIST.lines().map(|line| line.to_string()).collect()
+  EFF_WORDLIST.lines().map(str::to_string).collect()
 }
 
 /// Given a length (the number of possibilities, e.g. for the EFF long list it is 7776

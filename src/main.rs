@@ -31,15 +31,15 @@ fn main() {
     println!("Couldn't generate a passphrase with given parameters.");
     process::exit(1);
   } else {
-    println!("Passphrase: {}", passphrase.green().bold());
+    println!("{}", passphrase.join(" ").green().bold());
 
     if cli.entropy {
       let possibilities = format!("{}", variants).blue();
       let entropy = format!("{:.2} bits", diceware::calc_entropy(variants, cli.length)).blue();
 
-      println!("\nPossibilities: {}", possibilities);
-      println!("Entropy: {}", entropy);
-      println!("\nSee more at https://theworld.com/~reinhold/dicewarefaq.html#entropy");
+      println!("\nPossibilities: {possibilities}");
+      println!("Entropy: {entropy}");
+      println!("\nMore about entropy at https://theworld.com/~reinhold/dicewarefaq.html#entropy");
     }
   }
 }
