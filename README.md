@@ -29,6 +29,19 @@ OPTIONS:
     -V, --version                Print version information
 ```
 
+## Example of output
+
+```shell
+$ diceware --entropy
+
+probation overdraft debtor ground nintendo sculptor
+
+Possibilities: 7776
+Entropy: 77.55 bits
+
+More about entropy at https://theworld.com/~reinhold/dicewarefaq.html#entropy
+```
+
 ## Crate usage
 
 You can use this crate as a git dependency:
