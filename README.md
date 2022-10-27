@@ -32,7 +32,7 @@ cargo install --git https://github.com/norskeld/diceware
 Just invoke `diceware --help`. It's really simple.
 
 ```shell
-diceware 0.1.1
+diceware 0.1.2
 Generates strong Diceware passphrases.
 
 USAGE:
