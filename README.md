@@ -1,6 +1,6 @@
 # `⁙` diceware
 
-[![Checks](https://img.shields.io/github/workflow/status/norskeld/diceware/check?style=flat-square&colorA=22272d&colorB=22272d&label=checks)](https://github.com/norskeld/diceware/actions)
+[![Checks](https://img.shields.io/github/actions/workflow/status/norskeld/diceware/check.yml?style=flat-square&colorA=22272d&colorB=22272d&label=checks)](https://github.com/norskeld/diceware/actions)
 
 Rust crate and CLI for generating strong [Diceware] passphrases.
 
