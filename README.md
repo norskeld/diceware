@@ -23,12 +23,6 @@ cargo install --locked --git https://github.com/norskeld/diceware
 
 ## CLI usage
 
-As of now you can install it globally via **cargo** (assuming you have cargo and rustc installed):
-
-```shell
-cargo install --git https://github.com/norskeld/diceware
-```
-
 Just invoke `diceware --help`. It's really simple.
 
 ```shell
