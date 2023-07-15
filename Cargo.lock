@@ -129,7 +129,7 @@ dependencies = [
 
 [[package]]
 name = "diceware"
-version = "0.1.2"
+version = "1.0.0"
 dependencies = [
  "clap",
  "colored",
