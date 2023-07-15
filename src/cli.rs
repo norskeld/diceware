@@ -3,7 +3,7 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[clap(version, about = "Generates strong Diceware passphrases.", long_about = None)]
 pub struct DicewareCli {
-  /// How much words you want to generate.
+  /// How much words to generate.
   #[clap(short, long, default_value_t = 6, display_order = 1)]
   pub length: usize,
 

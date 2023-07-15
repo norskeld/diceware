@@ -6,9 +6,9 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-clap = { version = "3.0.7", features = ["derive"] }
-rand = "0.8.4"
-colored = "2.0.0"
+clap = { version = "4.3.12", features = ["derive"] }
+rand = "0.8.5"
+colored = "2.0.4"
 
 [profile.release]
 panic = "abort"
