@@ -83,7 +83,7 @@ impl Passphraser {
   }
 
   /// Set the number of words to generate.
-  pub fn length<'a>(&'a mut self, length: usize) -> &'a mut Self {
+  pub fn length(&mut self, length: usize) -> &mut Self {
     self.length = length;
     self
   }
@@ -95,7 +95,7 @@ impl Passphraser {
   }
 
   /// Set the formatting preset.
-  pub fn preset<'a>(&'a mut self, preset: Preset) -> &'a mut Self {
+  pub fn preset(&mut self, preset: Preset) -> &mut Self {
     self.preset = preset;
     self
   }
@@ -187,7 +187,7 @@ impl Passphrase {
       self
         .words
         .iter()
-        .map(|word| to_capitalized(&word))
+        .map(|word| to_capitalized(word))
         .collect::<Vec<_>>()
     } else {
       self.words.clone()
