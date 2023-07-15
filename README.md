@@ -26,18 +26,19 @@ cargo install --locked --git https://github.com/norskeld/diceware
 Just invoke `diceware --help`. It's really simple.
 
 ```shell
-diceware 0.1.2
 Generates strong Diceware passphrases.
 
-USAGE:
-    diceware [OPTIONS]
+Usage: diceware [OPTIONS]
 
-OPTIONS:
-    -l, --length <LENGTH>        How much words you want to generate [default: 6]
-    -w, --wordlist <WORDLIST>    Path to a custom wordlist
-    -e, --entropy                Show entropy of the passphrase
-    -h, --help                   Print help information
-    -V, --version                Print version information
+Options:
+  -l, --length <LENGTH>        How much words to generate [default: 6]
+  -w, --wordlist <WORDLIST>    Path to a custom wordlist
+  -e, --entropy                Show entropy of the passphrase
+  -c, --capitalize             Capitalize words
+  -d, --delimiter <DELIMITER>  Delimiter to use for joining words
+  -p, --preset <PRESET>        Formatting preset to use [possible values: pascal, kebab, snake]
+  -h, --help                   Print help
+  -V, --version                Print version
 ```
 
 ## Example of output
@@ -60,6 +61,20 @@ You can use this crate as a git dependency:
 ```toml
 [dependencies]
 diceware = { git = "https://github.com/norskeld/diceware" }
+```
+
+Simple example:
+
+```rust
+use diceware::{Passphraser, Preset};
+
+fn main() {
+  let passphrase = Passphraser::new(6)
+    .preset(Preset::KebabCase)
+    .generate();
+
+  println!("{}", passphrase.format())
+}
 ```
 
 ## Notes
