@@ -14,4 +14,8 @@ pub struct DicewareCli {
   /// Show entropy of the passphrase.
   #[clap(short, long, display_order = 3)]
   pub entropy: bool,
+
+  /// Delimiter to use for joining words.
+  #[clap(short, long, display_order = 4)]
+  pub delimiter: Option<String>,
 }

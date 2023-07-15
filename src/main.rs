@@ -31,7 +31,12 @@ fn main() {
     println!("Couldn't generate a passphrase with given parameters.");
     process::exit(1);
   } else {
-    println!("{}", passphrase.join(" ").green().bold());
+    let passphrase = match cli.delimiter {
+      | Some(delimiter) => passphrase.join(&delimiter),
+      | None => passphrase.join(" "),
+    };
+
+    println!("{}", passphrase.green().bold());
 
     if cli.entropy {
       let possibilities = format!("{}", variants).blue();
