@@ -25,15 +25,22 @@ fn main() {
 
   let variants = wordlist.len();
   let rolls = diceware::roll_dice(cli.length, 5, 1, 6);
-  let passphrase = diceware::passphrase(wordlist, rolls);
+  let mut words = diceware::passphrase(wordlist, rolls);
 
-  if passphrase.is_empty() {
+  if words.is_empty() {
     println!("Couldn't generate a passphrase with given parameters.");
     process::exit(1);
   } else {
+    if cli.capitalize {
+      words = words
+        .into_iter()
+        .map(|word| diceware::to_capitalized(&word))
+        .collect::<Vec<_>>();
+    }
+
     let passphrase = match cli.delimiter {
-      | Some(delimiter) => passphrase.join(&delimiter),
-      | None => passphrase.join(" "),
+      | Some(delimiter) => words.join(&delimiter),
+      | None => words.join(" "),
     };
 
     println!("{}", passphrase.green().bold());

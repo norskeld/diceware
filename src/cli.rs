@@ -18,4 +18,8 @@ pub struct DicewareCli {
   /// Delimiter to use for joining words.
   #[clap(short, long, display_order = 4)]
   pub delimiter: Option<String>,
+
+  /// Whether to capitalize words or not.
+  #[clap(short, long, display_order = 5)]
+  pub capitalize: bool,
 }

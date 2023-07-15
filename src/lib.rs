@@ -10,6 +10,7 @@ static EFF_WORDLIST: &str = include_str!("../data/eff_long_wordlist.txt");
 pub(crate) type Pair = (usize, String);
 
 /// Given a wordlist and rolls, generates a Diceware passphraseas as a [Vec] of words.
+/// Given a wordlist and rolls, generates a Diceware passphrase as a [Vec] of words.
 pub fn passphrase(lines: Vec<String>, dice_rolls: Vec<Vec<usize>>) -> Vec<String> {
   let words = dice_rolls.iter().fold(Vec::new(), |acc, roll| {
     let rolled_index = to_index(roll.to_vec());
@@ -85,6 +86,16 @@ pub(crate) fn to_pair(components: Vec<&str>) -> Option<Pair> {
 /// Diceware wordlist.
 pub(crate) fn to_index(ns: Vec<usize>) -> usize {
   ns.iter().fold(0, |acc, n| acc * 10 + n)
+}
+
+/// Capitalizes the first char of given string.
+pub fn to_capitalized(s: &str) -> String {
+  let mut chars = s.chars();
+
+  match chars.next() {
+    | None => String::new(),
+    | Some(first) => first.to_uppercase().collect::<String>() + chars.as_str(),
+  }
 }
 
 #[cfg(test)]
