@@ -16,7 +16,7 @@ fn main() {
 
   // Trying to load custom wordlist if set.
   if let Some(path) = cli.wordlist {
-    if let Ok(wordlist) = read_wordlist(path.clone()) {
+    if let Ok(wordlist) = read_wordlist(path) {
       builder.wordlist(&wordlist);
     } else {
       println!("Couldn't read the wordlist. Make sure the file exists.");
@@ -46,7 +46,7 @@ fn main() {
   }
 
   // Generate the passphrase.
-  let mut passphrase = builder.preset(preset).generate();
+  let passphrase = builder.preset(preset).generate();
 
   if passphrase.words().is_empty() {
     println!("Couldn't generate a passphrase with given parameters.");
