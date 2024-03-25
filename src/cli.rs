@@ -4,26 +4,26 @@ use clap::Parser;
 #[clap(version, about = "Generates strong Diceware passphrases.", long_about = None)]
 pub struct Cli {
   /// How much words to generate.
-  #[clap(short, long, default_value_t = 6, display_order = 1)]
+  #[arg(short, long, default_value_t = 6)]
   pub length: usize,
 
   /// Path to a custom wordlist.
-  #[clap(short, long, display_order = 2)]
+  #[arg(short, long)]
   pub wordlist: Option<String>,
 
   /// Show entropy of the passphrase.
-  #[clap(short, long, display_order = 3)]
+  #[arg(short, long)]
   pub entropy: bool,
 
   /// Capitalize words.
-  #[clap(short, long, display_order = 4)]
+  #[arg(short, long)]
   pub capitalize: bool,
 
   /// Delimiter to use for joining words.
-  #[clap(short, long, display_order = 5)]
+  #[arg(short, long)]
   pub delimiter: Option<String>,
 
   /// Formatting preset to use.
-  #[clap(short, long, display_order = 6, value_parser = ["pascal", "kebab", "snake"])]
+  #[arg(short, long, value_parser = ["pascal", "kebab", "snake"])]
   pub preset: Option<String>,
 }

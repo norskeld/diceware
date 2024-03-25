@@ -48,7 +48,7 @@ impl Preset {
 /// let mut builder = Passphraser::new(6)
 ///   .wordlist(&wordlist)
 ///   .length(10)
-///   .preset(Preset::PascalCase)
+///   .preset(Preset::PascalCase);
 /// ```
 ///
 /// Or call them separately:
