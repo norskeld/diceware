@@ -1,7 +1,8 @@
 [package]
 name = "diceware"
-description = "Rust crate and CLI for generating strong Diceware passphrases."
 version = "1.0.1"
+description = "Rust crate and CLI for generating strong Diceware passphrases."
+authors = ["Vladislav Mamon <vlad@nrsk.dev>"]
 edition = "2021"
 license = "MIT"
 
